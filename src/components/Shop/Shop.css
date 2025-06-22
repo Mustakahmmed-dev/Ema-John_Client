@@ -25,3 +25,16 @@
     justify-content: space-between;
     align-items: center;
 }
+.pagination{
+    margin: 50px;
+    text-align: center;
+}
+.pagination .btn{
+    background-color: black;
+    color: white;
+    font-weight: 600;
+    margin-right: 8px;
+}
+.pagination .selected{
+    background-color: orange;
+}
