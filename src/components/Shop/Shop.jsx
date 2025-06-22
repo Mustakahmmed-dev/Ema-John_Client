@@ -15,6 +15,14 @@ const Shop = () => {
     const pages = [...Array(numberOfPages).keys()];
     // console.log(pages)
 
+
+    // Send the pagination queries to server
+    useEffect(() => {
+        fetch(`http://localhost:5000/products?page=${currentPage}&size=${itemsPerPage}`)
+        .then(res => res.json())
+        .then(data => setProducts(data))
+    }, [currentPage, itemsPerPage])
+
     useEffect(() => {
         fetch('http://localhost:5000/products')
             .then(res => res.json())
@@ -119,7 +127,6 @@ const Shop = () => {
                     <option value="10">10</option>
                     <option value="20">20</option>
                     <option value="50">50</option>
-                    <option value="100">100</option>
                 </select>
                 <button onClick={handleNext}>Next</button>
             </div>
